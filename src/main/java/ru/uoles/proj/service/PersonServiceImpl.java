@@ -26,7 +26,7 @@ public class PersonServiceImpl implements PersonService<Person> {
     private final InfoDao infoDao;
 
     @Override
-    public Set<Person> parsePersonInfo() {
+    public Set<Person> filterPersonInfo() {
         final BodyName name = infoDao.getNamesList();
         final BodySurname surname = infoDao.getSurnamesList();
 

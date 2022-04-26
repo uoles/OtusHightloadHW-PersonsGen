@@ -11,5 +11,5 @@ import java.util.Set;
  */
 public interface PersonService<Person> {
 
-    Set<Person> parsePersonInfo();
+    Set<Person> filterPersonInfo();
 }
