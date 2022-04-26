@@ -1,3 +1,5 @@
+package ru.uoles.proj.model;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -8,24 +10,23 @@ import lombok.EqualsAndHashCode;
  * Date: 24.04.2022
  * Time: 15:33
  */
-
 @Data
 @EqualsAndHashCode
-public class Name {
+public class Surname {
 
     private Long id;
-    private String name;
+    private String surname;
     private String sex;
     private Long peoplesCount;
     private String whenPeoplesCount;
     private String source;
 
-    public Name() {
+    public Surname() {
     }
 
-    public Name(Long id, String name, String sex, Long peoplesCount, String whenPeoplesCount, String source) {
+    public Surname(Long id, String surname, String sex, Long peoplesCount, String whenPeoplesCount, String source) {
         this.id = id;
-        this.name = name;
+        this.surname = surname;
         this.sex = sex;
         this.peoplesCount = peoplesCount;
         this.whenPeoplesCount = whenPeoplesCount;

@@ -1,3 +1,5 @@
+package ru.uoles.proj.model;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,14 +14,14 @@ import java.util.Set;
  */
 @Data
 @EqualsAndHashCode
-public class BodyName {
+public class BodySurname {
 
-    private Set<Name> body;
+    private Set<Surname> body;
 
-    public BodyName() {
+    public BodySurname() {
     }
 
-    public BodyName(Set<Name> body) {
+    public BodySurname(Set<Surname> body) {
         this.body = body;
     }
 }

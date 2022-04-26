@@ -1,3 +1,5 @@
+package ru.uoles.proj.model;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -8,7 +10,6 @@ import lombok.EqualsAndHashCode;
  * Date: 22.04.2022
  * Time: 16:27
  */
-
 @Data
 @EqualsAndHashCode
 public class Person {
