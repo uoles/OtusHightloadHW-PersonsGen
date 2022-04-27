@@ -87,7 +87,9 @@ public class PersonCommands {
         List<String> list = FileParseUtil.listFilesForFolder(new File(path));
         log.info("Read list jsons - {}", list.size());
 
+        int i = 1;
         for (String fileName : list) {
+            log.info("{} ==========================================", i++);
             File file = new File(fileName);
 
             List<Person> persons = (List<Person>) FileParseUtil.parseJsonFile(file, new TypeReference<List<Person>>() {} );
