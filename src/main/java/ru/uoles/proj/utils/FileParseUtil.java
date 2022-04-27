@@ -3,13 +3,12 @@ package ru.uoles.proj.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.core.io.ClassPathResource;
 import ru.uoles.proj.Application;
+import ru.uoles.proj.model.Person;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -17,7 +16,9 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -58,5 +59,31 @@ public final class FileParseUtil {
         } catch (IOException exc) {
             throw new RuntimeException(exc);
         }
+    }
+
+    public static Object parseJsonFile(File file, TypeReference object) {
+        try {
+            return OBJECT_MAPPER.readValue(file, object);
+        } catch (IOException exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
+    public static String createNewFile(final String path, final List<Person> persons, int number) {
+        String fileName = String.join("", path, "/persons", String.valueOf(number), ".json");
+        try {
+            OBJECT_MAPPER.writeValue(new File(fileName), persons);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fileName;
+    }
+
+    public static List<String> listFilesForFolder(final File folder) {
+        List<String> files = new ArrayList<>();
+        for (final File fileEntry : Objects.requireNonNull(folder.listFiles())) {
+            files.add(fileEntry.getAbsolutePath());
+        }
+        return files;
     }
 }
