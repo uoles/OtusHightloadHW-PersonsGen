@@ -13,6 +13,8 @@ import ru.uoles.proj.service.PersonService;
 import ru.uoles.proj.utils.FileParseUtil;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 /**
@@ -86,9 +88,9 @@ public class PersonCommands {
         log.info("Read list jsons - {}", list.size());
 
         for (String fileName : list) {
-            List<Person> persons =
-                    (List<Person>) FileParseUtil.parseJsonFile(new File(fileName), new TypeReference<List<Person>>() {} );
+            File file = new File(fileName);
 
+            List<Person> persons = (List<Person>) FileParseUtil.parseJsonFile(file, new TypeReference<List<Person>>() {} );
             log.info("File read - {}", fileName);
 
             int[][] result = personService.addPersonList(new HashSet<>(persons), persons.size());
@@ -96,6 +98,13 @@ public class PersonCommands {
             for (int[] mas : result) {
                 long count = Arrays.stream(mas).filter(o -> Objects.equals(0, o)).count();
                 log.info("Batch added - {}", (count > 0 ? "ERROR" : "OK"));
+            }
+
+            try {
+                Files.deleteIfExists(file.toPath());
+                log.info("File deleted - {}", fileName);
+            } catch (IOException e) {
+                log.error("Error delete file '{}'", fileName, e);
             }
         }
 
