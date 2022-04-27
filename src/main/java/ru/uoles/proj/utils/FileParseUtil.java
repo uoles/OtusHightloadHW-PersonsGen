@@ -3,12 +3,23 @@ package ru.uoles.proj.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.core.io.ClassPathResource;
+import ru.uoles.proj.Application;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * OtusHightloadHW-PersonsGen
@@ -31,9 +42,14 @@ public final class FileParseUtil {
     }
 
     public static String readFileFromResources(String fileName) throws URISyntaxException, IOException {
-        URL resource = FileParseUtil.class.getClassLoader().getResource(fileName);
-        byte[] bytes = Files.readAllBytes(Paths.get(resource.toURI()));
-        return new String(bytes);
+        String result = null;
+        try (
+           InputStream inputStream = Application.class.getResourceAsStream(fileName);
+           BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))
+        ) {
+            result = reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+        return result;
     }
 
     public static Object parseJson(String json, TypeReference object) {
