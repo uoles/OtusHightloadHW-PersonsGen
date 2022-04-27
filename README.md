@@ -1,5 +1,5 @@
 # OtusHightloadHW-PersonsGen
-Генератор пользователей в бд для ДЗ №2, курса Otus Hightload.
+Генератор пользователей в бд для ДЗ №2, курса Otus. Highload Architect.
 JDK 11.
 MySQL 8.
 
