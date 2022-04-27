@@ -8,4 +8,9 @@
         values(:guid, NOW(), null, 1, :first_name, :second_name, :nick_name, :info, :age, :gender, :town)
     </entry>
 
+    <entry key="add.person.batch">
+        insert into PERSON(guid, registration_date, dissolution_date, permissions_id, first_name, second_name, nick_name, info, age, gender, town)
+        values(?, NOW(), null, 1, ?, ?, ?, ?, ?, ?, ?)
+    </entry>
+
 </properties>

@@ -1,5 +1,7 @@
 package ru.uoles.proj.dao;
 
+import java.util.Set;
+
 /**
  * OtusHightloadHW-PersonsGen
  * Created by IntelliJ IDEA.
@@ -10,4 +12,6 @@ package ru.uoles.proj.dao;
 public interface PersonDao<Person> {
 
     void addPerson(Person person);
+
+    int[][] addPersonList(final Set<Person> personList, int batchSize);
 }

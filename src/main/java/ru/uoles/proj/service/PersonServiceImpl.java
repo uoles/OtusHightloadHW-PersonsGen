@@ -74,4 +74,9 @@ public class PersonServiceImpl implements PersonService<Person> {
     public void addPerson(Person person) {
         personDao.addPerson(person);
     }
+
+    @Override
+    public int[][] addPersonList(Set<Person> person, int batchSize) {
+        return personDao.addPersonList(person, batchSize);
+    }
 }

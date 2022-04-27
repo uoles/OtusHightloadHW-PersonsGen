@@ -1,5 +1,7 @@
 package ru.uoles.proj.service;
 
+import ru.uoles.proj.model.Person;
+
 import java.util.Set;
 
 /**
@@ -14,4 +16,6 @@ public interface PersonService<Person> {
     Set<Person> filterPersonInfo(long nameCount, long surnameCount);
 
     void addPerson(Person person);
+
+    int[][] addPersonList(Set<Person> person, int batchSize);
 }

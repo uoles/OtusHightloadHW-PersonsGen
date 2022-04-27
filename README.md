@@ -24,3 +24,17 @@ MySQL 8.
 > =========== All persons added ===========
 
 ---
+Генерация пользователей (выполнение инсертов пакетами):
+> generate_batch <кол-во имен (м/ж)> <кол-во фамилий (м/ж)> <размер пакета>
+
+Пример:
+> generate_batch 100 100 500 \
+> ... \
+> Generated list 200 persons \
+> Batch size 500 \
+> Batch added - OK \
+> Batch added - OK \
+> ... \
+> =========== All persons added ===========
+
+---
