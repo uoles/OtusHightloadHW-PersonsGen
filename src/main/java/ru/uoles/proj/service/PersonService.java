@@ -11,5 +11,7 @@ import java.util.Set;
  */
 public interface PersonService<Person> {
 
-    Set<Person> filterPersonInfo();
+    Set<Person> filterPersonInfo(long nameCount, long surnameCount);
+
+    void addPerson(Person person);
 }

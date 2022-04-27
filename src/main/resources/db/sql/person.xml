@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>SQL requests to table PERSON</comment>
+
+    <entry key="add.person">
+        insert into PERSON(guid, registration_date, dissolution_date, permissions_id, first_name, second_name, nick_name, info, age, gender, town)
+        values(:guid, NOW(), null, 1, :first_name, :second_name, :nick_name, :info, :age, :gender, :town)
+    </entry>
+
+</properties>

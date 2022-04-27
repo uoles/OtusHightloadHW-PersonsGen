@@ -23,7 +23,7 @@ public class InfoDaoImpl implements InfoDao {
     public BodyName getNamesList() {
         String json = null;
         try {
-            json = FileParseUtil.readFileFromResources("names.json")
+            json = FileParseUtil.readFileFromResources("json/names.json")
                     .replaceAll("\n", "")
                     .replaceAll("\r", "")
                     .replaceAll(" ", "")
@@ -39,7 +39,7 @@ public class InfoDaoImpl implements InfoDao {
     public BodySurname getSurnamesList() {
         String json = null;
         try {
-            json = FileParseUtil.readFileFromResources("surnames.json")
+            json = FileParseUtil.readFileFromResources("json/surnames.json")
                     .replaceAll("\n", "")
                     .replaceAll("\r", "")
                     .replaceAll(" ", "")
