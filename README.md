@@ -8,7 +8,7 @@ MySQL 8.
 > mvn clean install
 
 ### Запуск:
-> java -jar /target/original-persons-gen.jar
+> java -jar ./target/original-persons-gen.jar
 
 ### Команды:
 Генерация пользователей:
