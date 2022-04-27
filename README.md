@@ -1,7 +1,12 @@
 # OtusHightloadHW-PersonsGen
 Генератор пользователей в бд для ДЗ №2, курса Otus Hightload.
+JDK 11.
+MySQL 8.
 
 ---
+### Сборка:
+> mvn clean install
+
 ### Запуск:
 > java -jar /target/original-persons-gen.jar
 
